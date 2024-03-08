@@ -28,9 +28,26 @@ function compressImg() {
         .pipe(gulp.dest('./build/images'));
 }
 
+function compressExercicioImgs() {
+    return gulp.src('./source/images/exercicio/*')
+        .pipe(imagemmin())
+        .pipe(gulp.dest('./build/images/exercicio'));
+}
+
+
+// Aulas
+
+// exports.default = function() {
+//     gulp.watch('./source/styles/*.scss', { ignoreInitial: false }, gulp.series(compileSass));
+//     gulp.watch('./source/scripts/*.js', { ignoreInitial: false }, gulp.series(compressJs));
+//     gulp.watch('./source/images/*', { ignoreInitial: false }, gulp.series(compressImg));
+// }
+
+
+// Exercicio
 exports.default = function() {
     gulp.watch('./source/styles/*.scss', { ignoreInitial: false }, gulp.series(compileSass));
     gulp.watch('./source/scripts/*.js', { ignoreInitial: false }, gulp.series(compressJs));
-    gulp.watch('./source/images/*', { ignoreInitial: false }, gulp.series(compressImg));
+    gulp.watch('./source/images/exercicio/*', { ignoreInitial: false }, gulp.series(compressExercicioImgs));
 }
 
